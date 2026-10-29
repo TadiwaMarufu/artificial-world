@@ -24,15 +24,25 @@ class Organism{
         };
 };
 
+class World{
+    private:
+        std::string worldName;
+        std::vector<Organism> organisms;
+
+    public:
+       World(std::string worldName){
+           this->worldName = worldName;
+       };
+
+
+        void createOrganism(Organism& organism){
+            organisms.push_back(organism);
+        };
+};
+
 int main(){
-    std::vector<Organism> organisms;
 
-    organisms.push_back(Organism("alpha", 1, 100));
-    organisms.push_back(Organism("beta", 2, 100));
-
-    for(Organism organism:organisms){
-       organism.displayOrganism();
-    };
+    World myWorld("myWorld");
 
     return 0;
 
